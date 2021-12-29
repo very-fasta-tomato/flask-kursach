@@ -52,10 +52,52 @@ def authors_base():
     return render_template("authors-base.html", authors=authors)
 
 
+@app.route('/authors-base-id')
+def authors_base_id():
+    authors = Author.query.order_by(Author.idAuthor).all()
+    return render_template("authors-base.html", authors=authors)
+
+
+@app.route('/authors-base-id/<int:id>')
+def authors_detail(idAuthor):
+    authors = Author.query.get(idAuthor)
+    return render_template("authors-detail.html", authors=authors)
+
+
+@app.route('/books-base-id')
+def books_base_id():
+    books = Book.query.order_by(Book.idBook).all()
+    return render_template("books-base.html", books=books)
+
+
 @app.route('/books-base')
 def books_base():
     books = Book.query.order_by(Book.title).all()
     return render_template("books-base.html", books=books)
+
+
+@app.route('/books-base-id/<int:id>')
+def books_detail(idBook):
+    books = Author.query.get(idBook)
+    return render_template("books-detail.html", books=books)
+
+
+@app.route('/readers-base')
+def readers_base():
+    readers = Reader.query.order_by(Reader.readerName).all()
+    return render_template("readers-base.html", readers=readers)
+
+
+@app.route('/readers-base-id')
+def readers_base_id():
+    readers = Reader.query.order_by(Reader.idReader).all()
+    return render_template("readers-base.html", readers=readers)
+
+
+@app.route('/readers-base-id/<int:id>')
+def readers_detail(idReader):
+    readers = Author.query.get(idReader)
+    return render_template("readers-detail.html", readers=readers)
 
 
 @app.route('/add-author', methods=['POST', 'GET'])
@@ -102,10 +144,10 @@ def add_reader():
         address = request.form['address']
         idBook = request.form['idBook']
 
-        book = Book(readerName=readerName, address=address, idBook=idBook)
+        reader = Reader(readerName=readerName, address=address, idBook=idBook)
 
         try:
-            db.session.add(book)
+            db.session.add(reader)
             db.session.commit()
             return redirect('/')
         except:

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список читателей
+{% endblock %}
+
+{% block body %}
+<h1>Все читатели</h1>
+<ul class="nav nav-pills">
+            <li class="nav-item"><a href="/readers-base" class="nav-link">Сортировка по имени</a></li>
+            <li class="nav-item"><a href="/readers-base-id" class="nav-link">Сортировка по id</a></li>
+</ul>
+{% for el in readers %}
+    <div class="alert alert-info">
+        <h2>{{ el.readerName }}</h2>
+        <p>Адресс: {{ el.address }}</p>
+        <p>ID книги: {{ el.idBook }}</p>
+        <p>ID: {{ el.idReader }}</p>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-<h1>Все авторы</h1>
+<h1>Все книги</h1>
+<ul class="nav nav-pills">
+            <li class="nav-item"><a href="/books-base" class="nav-link">Сортировка по названию</a></li>
+            <li class="nav-item"><a href="/books-base-id" class="nav-link">Сортировка по id</a></li>
+</ul>
 {% for el in books %}
     <div class="alert alert-info">
         <h2>{{ el.title }}</h2>

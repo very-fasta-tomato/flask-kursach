@@ -6,6 +6,10 @@
 
 {% block body %}
 <h1>Все авторы</h1>
+<ul class="nav nav-pills">
+            <li class="nav-item"><a href="/authors-base" class="nav-link">Сортировка по имени</a></li>
+            <li class="nav-item"><a href="/authors-base-id" class="nav-link">Сортировка по id</a></li>
+</ul>
 {% for el in authors %}
     <div class="alert alert-info">
         <h2>{{ el.authorName }}</h2>
