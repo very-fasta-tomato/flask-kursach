@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавить книгу
+{% endblock %}
+
+{% block body %}
+<h1>Добавление читателя</h1>
+<form method="post">
+    <input type="text" name="readerName" id="readerName" class="form-control" placeholder="Введите иия читателя"><br>
+    <input type="number" name="idBook" id="idBook" class="form-control" placeholder="Введите id книги"><br>
+    <input type="text" name="address" id="address" class="form-control" placeholder="Введите адресс читателя"><br>
+    <input type="submit" class="btn btn-success" value="Добавить">
+</form>
+{% endblock %}

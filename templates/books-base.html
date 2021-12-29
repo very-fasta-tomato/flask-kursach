@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список книг
+{% endblock %}
+
+{% block body %}
+<h1>Все авторы</h1>
+{% for el in books %}
+    <div class="alert alert-info">
+        <h2>{{ el.title }}</h2>
+        <p>Издатель: {{ el.publisher }}</p>
+        <p>ID автора: {{ el.idAuthor }}</p>
+        <p>ID: {{ el.idBook }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
