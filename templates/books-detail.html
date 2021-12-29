@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{books.title}}
+{% endblock %}
+
+{% block body %}
+<h1>{{books.title}}</h1>
+
+<div class="alert alert-info">
+    <p>Издатель: {{ books.publisher }}</p>
+    <p>ID автора: {{ books.idAuthor }}</p>
+    <p>ID: {{ books.idBook }}</p>
+</div>
+
+{% endblock %}

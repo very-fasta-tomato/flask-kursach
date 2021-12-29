@@ -58,7 +58,7 @@ def authors_base_id():
     return render_template("authors-base.html", authors=authors)
 
 
-@app.route('/authors-base-id/<int:id>')
+@app.route('/authors-base/<int:idAuthor>')
 def authors_detail(idAuthor):
     authors = Author.query.get(idAuthor)
     return render_template("authors-detail.html", authors=authors)
@@ -76,7 +76,7 @@ def books_base():
     return render_template("books-base.html", books=books)
 
 
-@app.route('/books-base-id/<int:id>')
+@app.route('/books-base/<int:idBook>')
 def books_detail(idBook):
     books = Author.query.get(idBook)
     return render_template("books-detail.html", books=books)
@@ -94,7 +94,7 @@ def readers_base_id():
     return render_template("readers-base.html", readers=readers)
 
 
-@app.route('/readers-base-id/<int:id>')
+@app.route('/readers-base/<int:idReader>')
 def readers_detail(idReader):
     readers = Author.query.get(idReader)
     return render_template("readers-detail.html", readers=readers)
