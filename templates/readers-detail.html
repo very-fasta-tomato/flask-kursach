@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{readers.readerName}}
+{% endblock %}
+
+{% block body %}
+<h1>{{readers.readerName}}</h1>
+
+<div class="alert alert-info">
+    <p>Адресс: {{ readers.address }}</p>
+    <p>ID книги: {{ readers.idBook }}</p>
+    <p>ID: {{ readers.idReader }}</p>
+</div>
+
+{% endblock %}
