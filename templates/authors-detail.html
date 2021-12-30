@@ -9,5 +9,7 @@
 <div class="alert alert-info">
     <p>Страна: {{ authors.country }}</p>
     <p>ID: {{ authors.idAuthor }}</p>
+    <a href="/authors-base/{{authors.idAuthor}}/del" class="btn btn-warning">Удалить</a>
+    <a href="/authors-base/{{authors.idAuthor}}/upd" class="btn btn-warning">Изменить</a>
 </div>
 {% endblock %}

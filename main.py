@@ -78,7 +78,7 @@ def books_base():
 
 @app.route('/books-base/<int:idBook>')
 def books_detail(idBook):
-    books = Author.query.get(idBook)
+    books = Book.query.get(idBook)
     return render_template("books-detail.html", books=books)
 
 
@@ -98,6 +98,39 @@ def readers_base_id():
 def readers_detail(idReader):
     readers = Author.query.get(idReader)
     return render_template("readers-detail.html", readers=readers)
+
+
+@app.route('/authors-base/<int:idAuthor>/del')
+def authors_del(idAuthor):
+    authors = Author.query.get_or_404(idAuthor)
+    try:
+        db.session.delete(authors)
+        db.session.commit()
+        return redirect('/authors-base')
+    except:
+        return "При удалении автора произошла ошибка"
+
+
+@app.route('/books-base/<int:idBook>/del')
+def books_del(idBook):
+    books = Book.query.get_or_404(idBook)
+    try:
+        db.session.delete(books)
+        db.session.commit()
+        return redirect('/books-base')
+    except:
+        return "При удалении книги произошла ошибка"
+
+
+@app.route('/readers-base/<int:idReader>/del')
+def readers_del(idReader):
+    readers = Reader.query.get_or_404(idReader)
+    try:
+        db.session.delete(readers)
+        db.session.commit()
+        return redirect('/readers-base')
+    except:
+        return "При удалении читателя произошла ошибка"
 
 
 @app.route('/add-author', methods=['POST', 'GET'])

@@ -11,6 +11,8 @@
     <p>Адресс: {{ readers.address }}</p>
     <p>ID книги: {{ readers.idBook }}</p>
     <p>ID: {{ readers.idReader }}</p>
+    <a href="/readers-base/{{readers.idReader}}/del" class="btn btn-warning">Удалить</a>
+    <a href="/readers-base/{{readers.idReader}}/upd" class="btn btn-warning">Изменить</a>
 </div>
 
 {% endblock %}

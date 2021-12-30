@@ -11,6 +11,8 @@
     <p>Издатель: {{ books.publisher }}</p>
     <p>ID автора: {{ books.idAuthor }}</p>
     <p>ID: {{ books.idBook }}</p>
+    <a href="/books-base/{{books.idAuthor}}/del" class="btn btn-warning">Удалить</a>
+    <a href="/books-base/{{books.idAuthor}}/upd" class="btn btn-warning">Изменить</a>
 </div>
 
 {% endblock %}
