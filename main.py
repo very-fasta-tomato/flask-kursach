@@ -115,6 +115,54 @@ def readers_del(idReader):
         return "При удалении читателя произошла ошибка"
 
 
+@app.route('/authors-base/<int:idAuthor>/upd', methods=['POST', 'GET'])
+def upd_author(idAuthor):
+    author = Author.query.get(idAuthor)
+    if request.method == 'POST':
+        author.authorName = request.form['authorName']
+        author.country = request.form['country']
+        try:
+            db.session.commit()
+            return redirect('/authors-base')
+        except:
+            return "При изменении автора произошла ошибка"
+    else:
+        return render_template("author-upd.html", author=author)
+
+
+@app.route('/books-base/<int:idBook>/upd', methods=['POST', 'GET'])
+def upd_book(idBook):
+    book = Book.query.get(idBook)
+    if request.method == 'POST':
+        book.idAuthor = request.form['idAuthor']
+        book.title = request.form['title']
+        book.publisher = request.form['publisher']
+        try:
+            db.session.commit()
+            return redirect('/books-base')
+        except:
+            return "При изменении книги произошла ошибка"
+    else:
+        return render_template("book-upd.html", book=book)
+
+
+@app.route('/readers-base/<int:idReader>/upd', methods=['POST', 'GET'])
+def upd_reader(idReader):
+    reader = Reader.query.get(idReader)
+    if request.method == 'POST':
+        reader.readerName = request.form['readerName']
+        reader.address = request.form['address']
+        reader.idBook = request.form['idBook']
+        try:
+            db.session.commit()
+            return redirect('/readers-base')
+        except:
+            return "При изменении читателя произошла ошибка"
+    else:
+        return render_template("reader-upd.html", reader=reader)
+
+
+
 @app.route('/add-author', methods=['POST', 'GET'])
 def add_author():
     if request.method == 'POST':
