@@ -15,7 +15,8 @@
         <h2>{{ el.authorName }}</h2>
         <p>Страна: {{ el.country }}</p>
         <p>ID: {{ el.idAuthor }}</p>
-        <a href="/authors-base/{{el.idAuthor}}" class="btn btn-warning">Изменить</a>
+        <a href="/authors-base/{{el.idAuthor}}/del" class="btn btn-warning">Удалить</a>
+        <a href="/authors-base/{{el.idAuthor}}/upd" class="btn btn-warning">Изменить</a>
     </div>
 {% endfor %}
 {% endblock %}
