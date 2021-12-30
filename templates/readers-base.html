@@ -16,6 +16,7 @@
         <p>Адресс: {{ el.address }}</p>
         <p>ID книги: {{ el.idBook }}</p>
         <p>ID: {{ el.idReader }}</p>
+        <a href="/readers-base/{{el.idReader}}" class="btn btn-warning">Изменить</a>
     </div>
 {% endfor %}
 {% endblock %}
